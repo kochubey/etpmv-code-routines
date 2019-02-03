@@ -33,7 +33,7 @@ public class RuntimeMap {
 
     public java.util.Map<String, Object> getRuntimeMap() {
         if (globalTDMMap == null) {
-            globalTDMMap = new HashMap<String, Object>();
+            globalTDMMap = new HashMap<>();
         }
         return globalTDMMap;
     }

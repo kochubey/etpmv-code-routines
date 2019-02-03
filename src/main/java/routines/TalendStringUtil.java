@@ -21,7 +21,7 @@ public class TalendStringUtil<T,Y> {
 	 */
 	public Y DECODE(T value, Y defaultValue, Map<T, Y> search) {
 	
-			return search.containsKey(value)?search.get(value):defaultValue;
+			return search.getOrDefault(value, defaultValue);
 	}
 	
 	/**
@@ -39,7 +39,7 @@ public class TalendStringUtil<T,Y> {
         if (searchAndResult.length % 2 != 0) {
             throw new IllegalArgumentException("Parameter searchAndResult should be in pair.");
         }
-        Map<T, Y> search = new HashMap<T, Y>();
+        Map<T, Y> search = new HashMap<>();
         for (int i = 0; i < searchAndResult.length; i += 2) {
             search.put((T)searchAndResult[i], (Y)searchAndResult[i + 1]);
         }

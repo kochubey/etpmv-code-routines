@@ -79,7 +79,7 @@ public class DocumentHelper {
                 }
             } else {// a few case : two or more declared namespaces
                 if (declaredNamespacesMapping != null && declaredNamespacesMapping.size() == size) {
-                    Map<String, String> namespaces = new HashMap<String, String>();
+                    Map<String, String> namespaces = new HashMap<>();
                     for (Namespace namespace : declaredNamespaces) {
                         namespaces.put(namespace.getPrefix(), namespace.getURI());
                     }

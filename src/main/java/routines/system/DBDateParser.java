@@ -5,7 +5,7 @@ import routines.TalendDate;
 public abstract class DBDateParser {
 	
     public static final String MYSQL = "mysql_id";
-    private static java.util.Map<String, DBDateParser> managerMap = new java.util.HashMap<String, DBDateParser>();
+    private static java.util.Map<String, DBDateParser> managerMap = new java.util.HashMap<>();
     
     public static DBDateParser getDBDateParser(String dbmsId){
     	DBDateParser dBDateParser = managerMap.get(dbmsId);

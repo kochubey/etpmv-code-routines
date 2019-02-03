@@ -49,13 +49,13 @@ public class TalendThreadPool {
             while (!stopAllWorkers && idleWorkers.getSize() != workerList.length) {
                 Thread.sleep(100);
             }
-            for (int i = 0; i < workerList.length; i++) {
-                workerList[i].stopRequest();
-                while (workerList[i].isAlive()) {
+            for (ThreadPoolWorker aWorkerList : workerList) {
+                aWorkerList.stopRequest();
+                while (aWorkerList.isAlive()) {
                     Thread.sleep(100);
                 }
             }
-        } catch (InterruptedException x) {
+        } catch (InterruptedException ignored) {
         }
     }
 
@@ -64,13 +64,13 @@ public class TalendThreadPool {
             try {
                 stopAllWorkers = true;
                 idleWorkers.destory();
-                for (int i = 0; i < workerList.length; i++) {
-                    workerList[i].stopRequest();
-                    while (workerList[i].isAlive()) {
+                for (ThreadPoolWorker aWorkerList : workerList) {
+                    aWorkerList.stopRequest();
+                    while (aWorkerList.isAlive()) {
                         Thread.sleep(100);
                     }
                 }
-            } catch (InterruptedException x) {
+            } catch (InterruptedException ignored) {
             }
 
         }
@@ -92,13 +92,11 @@ public class TalendThreadPool {
     }
 }
 
-class ThreadPoolWorker extends Object {
+class ThreadPoolWorker  {
 
     private static int nextWorkerID = 0;
 
     private ThreadQueue idleWorkers;
-
-    private int workerID;
 
     private ThreadQueue handoffBox;
 
@@ -109,21 +107,18 @@ class ThreadPoolWorker extends Object {
     public ThreadPoolWorker(ThreadQueue idleWorkers) {
         this.idleWorkers = idleWorkers;
 
-        workerID = getNextWorkerID();
+        int workerID = getNextWorkerID();
         handoffBox = new ThreadQueue(1); // only one slot
 
         // just before returning, the thread should be created and started.
         noStopRequested = true;
 
-        Runnable r = new Runnable() {
-
-            public void run() {
-                try {
-                    runWork();
-                } catch (Exception x) {
-                    // in case ANY exception slips through
-                    x.printStackTrace();
-                }
+        Runnable r = () -> {
+            try {
+                runWork();
+            } catch (Exception x) {
+                // in case ANY exception slips through
+                x.printStackTrace();
             }
         };
 

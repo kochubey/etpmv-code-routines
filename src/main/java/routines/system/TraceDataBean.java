@@ -29,7 +29,7 @@ public class TraceDataBean implements TraceBean, Serializable {
 
     private int nbLine;
 
-    private LinkedHashMap<String, String> data = new LinkedHashMap<String, String>();
+    private LinkedHashMap<String, String> data = new LinkedHashMap<>();
 
     public TraceDataBean(String connectionId) {
         this.connectionId = connectionId;

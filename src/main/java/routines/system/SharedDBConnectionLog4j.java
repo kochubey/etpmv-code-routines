@@ -34,7 +34,7 @@ public class SharedDBConnectionLog4j {
 
     private static SharedDBConnectionLog4j instance = null;
 
-    private Map<String, Connection> sharedConnections = new HashMap<String, java.sql.Connection>();
+    private Map<String, Connection> sharedConnections = new HashMap<>();
 
     private SharedDBConnectionLog4j() {
 

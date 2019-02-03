@@ -21,5 +21,5 @@ package routines.system;
  */
 public interface TraceBean {
 
-    public boolean equals(TraceBean traceBean);
+    boolean equals(TraceBean traceBean);
 }

@@ -85,7 +85,7 @@ public class Document implements java.io.Serializable{
         if (doc == null || lookupInfo == null) {
             return null;
         }
-        List<Map<String, Object>> result = new ArrayList<Map<String, Object>>();
+        List<Map<String, Object>> result = new ArrayList<>();
         org.dom4j.Document document = doc.getDocument();
         
         //init document to flat tool
@@ -132,7 +132,7 @@ public class Document implements java.io.Serializable{
             if (reject) {
                 // do nothing
             } else {
-                Map<String, Object> row = new HashMap<String, Object>();
+                Map<String, Object> row = new HashMap<>();
                 for (Object key : xpathOfResults.keySet()) {
                     String xpath = xpathOfResults.get(key);
                     org.dom4j.XPath xpathObjectForResult = node.createXPath(xpath);
@@ -148,11 +148,11 @@ public class Document implements java.io.Serializable{
 		int count = result.size();
 		if(count>0) {
 			if("UNIQUE_MATCH".equals(matchingMode)) {
-				List<Map<String,Object>> singleResult = new ArrayList<Map<String,Object>>();
+				List<Map<String,Object>> singleResult = new ArrayList<>();
 				singleResult.add(result.get(count-1));
 				return singleResult;
 			} else if("FIRST_MATCH".equals(matchingMode)) {
-				List<Map<String,Object>> singleResult = new ArrayList<Map<String,Object>>();
+				List<Map<String,Object>> singleResult = new ArrayList<>();
 				singleResult.add(result.get(0));
 				return singleResult;
 			}

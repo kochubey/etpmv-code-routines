@@ -31,7 +31,7 @@ public class DocumentToFlat {
 	private List<AbstractNode> nodes;
 
 	//result show
-	private List<Map<String,String>> resultSet = new ArrayList<Map<String,String>>();
+	private List<Map<String,String>> resultSet = new ArrayList<>();
 	
 	public DocumentToFlat() {
 		
@@ -62,7 +62,7 @@ public class DocumentToFlat {
 			
 			for(AbstractNode node : nodes) {
 				//init row
-				Map<String,String> row = new HashMap<String,String>();
+				Map<String,String> row = new HashMap<>();
 				resultSet.add(row);
 				//init columns for one row
 				for(int i=0;i<currentRelativePathMappings.length;i++) {
@@ -201,7 +201,7 @@ public class DocumentToFlat {
 		xpathOfResults = resetMapRelativeXpathValue(xpathOfResults);
 	}
 	
-	private Map resetMapRelativeXpathKey(Map<String, ? extends Object> source) {
+	private Map resetMapRelativeXpathKey(Map<String, ?> source) {
     	Map content = new HashMap();
     	for(String key : source.keySet()) {
     		String newKey = resetRelativeXPath(key);

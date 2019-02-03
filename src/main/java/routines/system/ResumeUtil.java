@@ -48,7 +48,7 @@ public class ResumeUtil {
     String root_pid = null;
 
     // <pid, SimpleCsvWriter>.
-    private static Map<String, SimpleCsvWriter> sharedWriterMap = new HashMap<String, SimpleCsvWriter>();
+    private static Map<String, SimpleCsvWriter> sharedWriterMap = new HashMap<>();
 
     private static Object lock = new Object();
     
@@ -428,7 +428,7 @@ public class ResumeUtil {
         NONE,
         WARN,
         ERROR,
-        FATAL;
+        FATAL
     }
 
     public enum ResumeEventType {
@@ -436,7 +436,7 @@ public class ResumeUtil {
         CHECKPOINT,
         SYSTEM_LOG,
         USER_DEF_LOG,
-        JOB_ENDED;
+        JOB_ENDED
     }
 
     /**
@@ -547,7 +547,7 @@ public class ResumeUtil {
             int found = original.indexOf(pattern);
 
             if (found > -1) {
-                StringBuffer sb = new StringBuffer();
+                StringBuilder sb = new StringBuilder();
                 int start = 0;
 
                 while (found != -1) {

@@ -86,7 +86,7 @@ public class TypeConvert {
      * 
      */
     public static Boolean boolean2Boolean(boolean o) {
-        return Boolean.valueOf(o);
+        return o;
     }
 
     /**
@@ -214,7 +214,7 @@ public class TypeConvert {
      * 
      */
     public static Object boolean2Object(boolean o) {
-        return Boolean.valueOf(o);
+        return o;
     }
 
     /**
@@ -258,7 +258,7 @@ public class TypeConvert {
     public static boolean Boolean2boolean(Boolean o) {
         if (o == null)
             return false;
-        return o.booleanValue();
+        return o;
     }
 
     /**
@@ -465,7 +465,7 @@ public class TypeConvert {
      * 
      */
     public static Byte byte2Byte(byte o) {
-        return Byte.valueOf(o);
+        return o;
     }
 
     /**
@@ -489,7 +489,7 @@ public class TypeConvert {
      * 
      */
     public static Character byte2Character(byte o) {
-        return Character.valueOf((char) o);
+        return (char) o;
     }
 
     /**
@@ -513,7 +513,7 @@ public class TypeConvert {
      * 
      */
     public static Double byte2Double(byte o) {
-        return Double.valueOf(o);
+        return (double) o;
     }
 
     /**
@@ -529,7 +529,7 @@ public class TypeConvert {
      * 
      */
     public static Float byte2Float(byte o) {
-        return Float.valueOf(o);
+        return (float) o;
     }
 
     /**
@@ -553,7 +553,7 @@ public class TypeConvert {
      * 
      */
     public static Integer byte2Integer(byte o) {
-        return Integer.valueOf(o);
+        return (int) o;
     }
 
     /**
@@ -569,7 +569,7 @@ public class TypeConvert {
      * 
      */
     public static Long byte2Long(byte o) {
-        return Long.valueOf(o);
+        return (long) o;
     }
 
     /**
@@ -577,7 +577,7 @@ public class TypeConvert {
      * 
      */
     public static Object byte2Object(byte o) {
-        return Byte.valueOf(o);
+        return o;
     }
 
     /**
@@ -593,7 +593,7 @@ public class TypeConvert {
      * 
      */
     public static Short byte2Short(byte o) {
-        return Short.valueOf(o);
+        return (short) o;
     }
 
     /**
@@ -657,7 +657,7 @@ public class TypeConvert {
     public static byte[] Byte2byteArray(Byte o) {
         if (o == null)
             return null;
-        return new byte[] { o.byteValue() };
+        return new byte[] {o};
     }
 
     /**
@@ -677,7 +677,7 @@ public class TypeConvert {
     public static Character Byte2Character(Byte o) {
         if (o == null)
             return null;
-        return Character.valueOf((char) o.byteValue());
+        return (char) o.byteValue();
     }
 
     /**
@@ -725,7 +725,7 @@ public class TypeConvert {
     public static Float Byte2Float(Byte o) {
         if (o == null)
             return null;
-        return Float.valueOf(o.floatValue());
+        return o.floatValue();
     }
 
     /**
@@ -1006,8 +1006,8 @@ public class TypeConvert {
         if (o == null)
             return null;
         List list = new ArrayList();
-        for (int i = 0; i < o.length; i++) {
-            list.add(o[i]);
+        for (byte anO : o) {
+            list.add(anO);
         }
         return list;
     }
@@ -1041,7 +1041,7 @@ public class TypeConvert {
      * 
      */
     public static Byte char2Byte(char o) {
-        return Byte.valueOf((byte) o);
+        return (byte) o;
     }
 
     /**
@@ -1065,7 +1065,7 @@ public class TypeConvert {
      * 
      */
     public static Character char2Character(char o) {
-        return Character.valueOf(o);
+        return o;
     }
 
     /**
@@ -1089,7 +1089,7 @@ public class TypeConvert {
      * 
      */
     public static Double char2Double(char o) {
-        return Double.valueOf(o);
+        return (double) o;
     }
 
     /**
@@ -1105,7 +1105,7 @@ public class TypeConvert {
      * 
      */
     public static Float char2Float(char o) {
-        return Float.valueOf(o);
+        return (float) o;
     }
 
     /**
@@ -1129,7 +1129,7 @@ public class TypeConvert {
      * 
      */
     public static Integer char2Integer(char o) {
-        return Integer.valueOf(o);
+        return (int) o;
     }
 
     /**
@@ -1145,7 +1145,7 @@ public class TypeConvert {
      * 
      */
     public static Long char2Long(char o) {
-        return Long.valueOf(o);
+        return (long) o;
     }
 
     /**
@@ -1153,7 +1153,7 @@ public class TypeConvert {
      * 
      */
     public static Object char2Object(char o) {
-        return Character.valueOf(o);
+        return o;
     }
 
     /**
@@ -1169,7 +1169,7 @@ public class TypeConvert {
      * 
      */
     public static Short char2Short(char o) {
-        return Short.valueOf((short) o);
+        return (short) o;
     }
 
     /**
@@ -1223,7 +1223,7 @@ public class TypeConvert {
     public static Byte Character2Byte(Character o) {
         if (o == null)
             return null;
-        return Byte.valueOf((byte) o.charValue());
+        return (byte) o.charValue();
     }
 
     /**
@@ -1243,7 +1243,7 @@ public class TypeConvert {
     public static char Character2char(Character o) {
         if (o == null)
             return (char) 0;
-        return o.charValue();
+        return o;
     }
 
     /**
@@ -1271,7 +1271,7 @@ public class TypeConvert {
     public static double Character2double(Character o) {
         if (o == null)
             return (double) 0;
-        return (double) o.charValue();
+        return (double) o;
     }
 
     /**
@@ -1291,7 +1291,7 @@ public class TypeConvert {
     public static float Character2float(Character o) {
         if (o == null)
             return 0f;
-        return (float) o.charValue();
+        return (float) o;
     }
 
     /**
@@ -1311,7 +1311,7 @@ public class TypeConvert {
     public static BigDecimal Character2BigDecimal(Character o) {
         if (o == null)
             return null;
-        return new BigDecimal((char) o.charValue());
+        return new BigDecimal((char) o);
     }
 
     /**
@@ -1321,7 +1321,7 @@ public class TypeConvert {
     public static int Character2int(Character o) {
         if (o == null)
             return 0;
-        return (int) o.charValue();
+        return (int) o;
     }
 
     /**
@@ -1341,7 +1341,7 @@ public class TypeConvert {
     public static long Character2long(Character o) {
         if (o == null)
             return 0L;
-        return (long) o.charValue();
+        return (long) o;
     }
 
     /**
@@ -1351,7 +1351,7 @@ public class TypeConvert {
     public static Long Character2Long(Character o) {
         if (o == null)
             return null;
-        return Long.valueOf(o.charValue());
+        return (long) o.charValue();
     }
 
     /**
@@ -1379,7 +1379,7 @@ public class TypeConvert {
     public static Short Character2Short(Character o) {
         if (o == null)
             return null;
-        return Short.valueOf((short) o.charValue());
+        return (short) o.charValue();
     }
 
     /**
@@ -1541,7 +1541,7 @@ public class TypeConvert {
     public static Long Date2Long(Date o) {
         if (o == null)
             return null;
-        return Long.valueOf(o.getTime());
+        return o.getTime();
     }
 
     /**
@@ -1619,7 +1619,7 @@ public class TypeConvert {
      * 
      */
     public static Byte double2Byte(double o) {
-        return Byte.valueOf((byte) o);
+        return (byte) o;
     }
 
     /**
@@ -1643,7 +1643,7 @@ public class TypeConvert {
      * 
      */
     public static Character double2Character(double o) {
-        return Character.valueOf((char) o);
+        return (char) o;
     }
 
     /**
@@ -1667,7 +1667,7 @@ public class TypeConvert {
      * 
      */
     public static Double double2Double(double o) {
-        return Double.valueOf(o);
+        return o;
     }
 
     /**
@@ -1683,7 +1683,7 @@ public class TypeConvert {
      * 
      */
     public static Float double2Float(double o) {
-        return Float.valueOf((float) o);
+        return (float) o;
     }
 
     /**
@@ -1707,7 +1707,7 @@ public class TypeConvert {
      * 
      */
     public static Integer double2Integer(double o) {
-        return Integer.valueOf((int) o);
+        return (int) o;
     }
 
     /**
@@ -1723,7 +1723,7 @@ public class TypeConvert {
      * 
      */
     public static Long double2Long(double o) {
-        return Long.valueOf((long) o);
+        return (long) o;
     }
 
     /**
@@ -1731,7 +1731,7 @@ public class TypeConvert {
      * 
      */
     public static Object double2Object(double o) {
-        return Double.valueOf(o);
+        return o;
     }
 
     /**
@@ -1747,7 +1747,7 @@ public class TypeConvert {
      * 
      */
     public static Short double2Short(double o) {
-        return Short.valueOf((short) o);
+        return (short) o;
     }
 
     /**
@@ -1801,7 +1801,7 @@ public class TypeConvert {
     public static Byte Double2Byte(Double o) {
         if (o == null)
             return null;
-        return Byte.valueOf(o.byteValue());
+        return o.byteValue();
     }
 
     /**
@@ -1831,7 +1831,7 @@ public class TypeConvert {
     public static Character Double2Character(Double o) {
         if (o == null)
             return null;
-        return Character.valueOf((char) o.doubleValue());
+        return (char) o.doubleValue();
     }
 
     /**
@@ -1849,7 +1849,7 @@ public class TypeConvert {
     public static double Double2double(Double o) {
         if (o == null)
             return 0d;
-        return o.doubleValue();
+        return o;
     }
 
     /**
@@ -1879,7 +1879,7 @@ public class TypeConvert {
     public static Float Double2Float(Double o) {
         if (o == null)
             return null;
-        return Float.valueOf(o.floatValue());
+        return o.floatValue();
     }
 
     /**
@@ -1889,7 +1889,7 @@ public class TypeConvert {
     public static BigDecimal Double2BigDecimal(Double o) {
         if (o == null)
             return null;
-        return new BigDecimal(o.doubleValue());
+        return new BigDecimal(o);
     }
 
     /**
@@ -1909,7 +1909,7 @@ public class TypeConvert {
     public static Integer Double2Integer(Double o) {
         if (o == null)
             return null;
-        return Integer.valueOf(o.intValue());
+        return o.intValue();
     }
 
     /**
@@ -1929,7 +1929,7 @@ public class TypeConvert {
     public static Long Double2Long(Double o) {
         if (o == null)
             return null;
-        return Long.valueOf(o.longValue());
+        return o.longValue();
     }
 
     /**
@@ -1957,7 +1957,7 @@ public class TypeConvert {
     public static Short Double2Short(Double o) {
         if (o == null)
             return null;
-        return Short.valueOf(o.shortValue());
+        return o.shortValue();
     }
 
     /**
@@ -2012,7 +2012,7 @@ public class TypeConvert {
      * 
      */
     public static Byte float2Byte(float o) {
-        return Byte.valueOf((byte) o);
+        return (byte) o;
     }
 
     /**
@@ -2036,7 +2036,7 @@ public class TypeConvert {
      * 
      */
     public static Character float2Character(float o) {
-        return Character.valueOf((char) o);
+        return (char) o;
     }
 
     /**
@@ -2060,7 +2060,7 @@ public class TypeConvert {
      * 
      */
     public static Double float2Double(float o) {
-        return Double.valueOf(o);
+        return (double) o;
     }
 
     /**
@@ -2076,7 +2076,7 @@ public class TypeConvert {
      * 
      */
     public static Float float2Float(float o) {
-        return Float.valueOf(o);
+        return o;
     }
 
     /**
@@ -2100,7 +2100,7 @@ public class TypeConvert {
      * 
      */
     public static Integer float2Integer(float o) {
-        return Integer.valueOf((int) o);
+        return (int) o;
     }
 
     /**
@@ -2116,7 +2116,7 @@ public class TypeConvert {
      * 
      */
     public static Long float2Long(float o) {
-        return Long.valueOf((long) o);
+        return (long) o;
     }
 
     /**
@@ -2124,7 +2124,7 @@ public class TypeConvert {
      * 
      */
     public static Object float2Object(float o) {
-        return Float.valueOf(o);
+        return o;
     }
 
     /**
@@ -2140,7 +2140,7 @@ public class TypeConvert {
      * 
      */
     public static Short float2Short(float o) {
-        return Short.valueOf((short) o);
+        return (short) o;
     }
 
     /**
@@ -2194,7 +2194,7 @@ public class TypeConvert {
     public static Byte Float2Byte(Float o) {
         if (o == null)
             return null;
-        return Byte.valueOf(o.byteValue());
+        return o.byteValue();
     }
 
     /**
@@ -2225,7 +2225,7 @@ public class TypeConvert {
         if (o == null)
             return null;
 
-        return Character.valueOf((char) o.floatValue());
+        return (char) o.floatValue();
 
     }
 
@@ -2264,7 +2264,7 @@ public class TypeConvert {
     public static float Float2float(Float o) {
         if (o == null)
             return 0f;
-        return o.floatValue();
+        return o;
     }
 
     /**
@@ -2284,7 +2284,7 @@ public class TypeConvert {
     public static BigDecimal Float2BigDecimal(Float o) {
         if (o == null)
             return null;
-        return new BigDecimal(o.floatValue());
+        return new BigDecimal(o);
     }
 
     /**
@@ -2304,7 +2304,7 @@ public class TypeConvert {
     public static Integer Float2Integer(Float o) {
         if (o == null)
             return null;
-        return Integer.valueOf(o.intValue());
+        return o.intValue();
     }
 
     /**
@@ -2324,7 +2324,7 @@ public class TypeConvert {
     public static Long Float2Long(Float o) {
         if (o == null)
             return null;
-        return Long.valueOf(o.longValue());
+        return o.longValue();
     }
 
     /**
@@ -2352,7 +2352,7 @@ public class TypeConvert {
     public static Short Float2Short(Float o) {
         if (o == null)
             return null;
-        return Short.valueOf(o.shortValue());
+        return o.shortValue();
     }
 
     /**
@@ -2410,7 +2410,7 @@ public class TypeConvert {
     public static Byte BigDecimal2Byte(BigDecimal o) {
         if (o == null)
             return null;
-        return Byte.valueOf(o.byteValue());
+        return o.byteValue();
     }
 
     /**
@@ -2440,7 +2440,7 @@ public class TypeConvert {
     public static Character BigDecimal2Character(BigDecimal o) {
         if (o == null)
             return null;
-        return Character.valueOf((char) o.intValue());
+        return (char) o.intValue();
     }
 
     /**
@@ -2468,7 +2468,7 @@ public class TypeConvert {
     public static Double BigDecimal2Double(BigDecimal o) {
         if (o == null)
             return null;
-        return Double.valueOf(o.doubleValue());
+        return o.doubleValue();
     }
 
     /**
@@ -2488,7 +2488,7 @@ public class TypeConvert {
     public static Float BigDecimal2Float(BigDecimal o) {
         if (o == null)
             return null;
-        return Float.valueOf(o.floatValue());
+        return o.floatValue();
     }
 
     /**
@@ -2516,7 +2516,7 @@ public class TypeConvert {
     public static Integer BigDecimal2Integer(BigDecimal o) {
         if (o == null)
             return null;
-        return Integer.valueOf(o.intValue());
+        return o.intValue();
     }
 
     /**
@@ -2536,7 +2536,7 @@ public class TypeConvert {
     public static Long BigDecimal2Long(BigDecimal o) {
         if (o == null)
             return null;
-        return Long.valueOf(o.longValue());
+        return o.longValue();
     }
 
     /**
@@ -2564,7 +2564,7 @@ public class TypeConvert {
     public static Short BigDecimal2Short(BigDecimal o) {
         if (o == null)
             return null;
-        return Short.valueOf((short) o.intValue());
+        return (short) o.intValue();
     }
 
     /**
@@ -2618,7 +2618,7 @@ public class TypeConvert {
      * 
      */
     public static Byte int2Byte(int o) {
-        return Byte.valueOf((byte) o);
+        return (byte) o;
     }
 
     /**
@@ -2642,7 +2642,7 @@ public class TypeConvert {
      * 
      */
     public static Character int2Character(int o) {
-        return Character.valueOf((char) o);
+        return (char) o;
     }
 
     /**
@@ -2666,7 +2666,7 @@ public class TypeConvert {
      * 
      */
     public static Double int2Double(int o) {
-        return Double.valueOf(o);
+        return (double) o;
     }
 
     /**
@@ -2682,7 +2682,7 @@ public class TypeConvert {
      * 
      */
     public static Float int2Float(int o) {
-        return Float.valueOf(o);
+        return (float) o;
     }
 
     /**
@@ -2706,7 +2706,7 @@ public class TypeConvert {
      * 
      */
     public static Integer int2Integer(int o) {
-        return Integer.valueOf(o);
+        return o;
     }
 
     /**
@@ -2722,7 +2722,7 @@ public class TypeConvert {
      * 
      */
     public static Long int2Long(int o) {
-        return Long.valueOf(o);
+        return (long) o;
     }
 
     /**
@@ -2730,7 +2730,7 @@ public class TypeConvert {
      * 
      */
     public static Object int2Object(int o) {
-        return Integer.valueOf(o);
+        return o;
     }
 
     /**
@@ -2746,7 +2746,7 @@ public class TypeConvert {
      * 
      */
     public static Short int2Short(int o) {
-        return Short.valueOf((short) o);
+        return (short) o;
     }
 
     /**
@@ -2800,7 +2800,7 @@ public class TypeConvert {
     public static Byte Integer2Byte(Integer o) {
         if (o == null)
             return null;
-        return Byte.valueOf(o.byteValue());
+        return o.byteValue();
     }
 
     /**
@@ -2831,7 +2831,7 @@ public class TypeConvert {
     public static Character Integer2Character(Integer o) {
         if (o == null)
             return null;
-        return Character.valueOf((char) o.intValue());
+        return (char) o.intValue();
     }
 
     /**
@@ -2859,7 +2859,7 @@ public class TypeConvert {
     public static Double Integer2Double(Integer o) {
         if (o == null)
             return null;
-        return Double.valueOf(o.doubleValue());
+        return o.doubleValue();
     }
 
     /**
@@ -2879,7 +2879,7 @@ public class TypeConvert {
     public static Float Integer2Float(Integer o) {
         if (o == null)
             return null;
-        return Float.valueOf(o.floatValue());
+        return o.floatValue();
     }
 
     /**
@@ -2889,7 +2889,7 @@ public class TypeConvert {
     public static BigDecimal Integer2BigDecimal(Integer o) {
         if (o == null)
             return null;
-        return new BigDecimal(o.intValue());
+        return new BigDecimal(o);
     }
 
     /**
@@ -2899,7 +2899,7 @@ public class TypeConvert {
     public static int Integer2int(Integer o) {
         if (o == null)
             return 0;
-        return o.intValue();
+        return o;
     }
 
     /**
@@ -2955,7 +2955,7 @@ public class TypeConvert {
     public static Short Integer2Short(Integer o) {
         if (o == null)
             return null;
-        return Short.valueOf(o.shortValue());
+        return o.shortValue();
     }
 
     /**
@@ -3009,7 +3009,7 @@ public class TypeConvert {
      * 
      */
     public static Byte long2Byte(long o) {
-        return Byte.valueOf((byte) o);
+        return (byte) o;
     }
 
     /**
@@ -3033,7 +3033,7 @@ public class TypeConvert {
      * 
      */
     public static Character long2Character(long o) {
-        return Character.valueOf((char) o);
+        return (char) o;
     }
 
     /**
@@ -3057,7 +3057,7 @@ public class TypeConvert {
      * 
      */
     public static Double long2Double(long o) {
-        return Double.valueOf(o);
+        return (double) o;
     }
 
     /**
@@ -3073,7 +3073,7 @@ public class TypeConvert {
      * 
      */
     public static Float long2Float(long o) {
-        return Float.valueOf(o);
+        return (float) o;
     }
 
     /**
@@ -3097,7 +3097,7 @@ public class TypeConvert {
      * 
      */
     public static Integer long2Integer(long o) {
-        return Integer.valueOf((int) o);
+        return (int) o;
     }
 
     /**
@@ -3113,7 +3113,7 @@ public class TypeConvert {
      * 
      */
     public static Long long2Long(long o) {
-        return Long.valueOf(o);
+        return o;
     }
 
     /**
@@ -3121,7 +3121,7 @@ public class TypeConvert {
      * 
      */
     public static Object long2Object(long o) {
-        return Long.valueOf(o);
+        return o;
     }
 
     /**
@@ -3137,7 +3137,7 @@ public class TypeConvert {
      * 
      */
     public static Short long2Short(long o) {
-        return Short.valueOf((short) o);
+        return (short) o;
     }
 
     /**
@@ -3191,7 +3191,7 @@ public class TypeConvert {
     public static Byte Long2Byte(Long o) {
         if (o == null)
             return null;
-        return Byte.valueOf(o.byteValue());
+        return o.byteValue();
     }
 
     /**
@@ -3221,7 +3221,7 @@ public class TypeConvert {
     public static Character Long2Character(Long o) {
         if (o == null)
             return null;
-        return Character.valueOf((char) o.longValue());
+        return (char) o.longValue();
     }
 
     /**
@@ -3279,7 +3279,7 @@ public class TypeConvert {
     public static BigDecimal Long2BigDecimal(Long o) {
         if (o == null)
             return null;
-        return new BigDecimal(o.longValue());
+        return new BigDecimal(o);
     }
 
     /**
@@ -3299,7 +3299,7 @@ public class TypeConvert {
     public static Integer Long2Integer(Long o) {
         if (o == null)
             return null;
-        return Integer.valueOf(o.intValue());
+        return o.intValue();
     }
 
     /**
@@ -3309,7 +3309,7 @@ public class TypeConvert {
     public static long Long2long(Long o) {
         if (o == null)
             return 0L;
-        return o.longValue();
+        return o;
     }
 
     /**
@@ -3345,7 +3345,7 @@ public class TypeConvert {
     public static Short Long2Short(Long o) {
         if (o == null)
             return null;
-        return Short.valueOf(o.shortValue());
+        return o.shortValue();
     }
 
     /**
@@ -3378,7 +3378,7 @@ public class TypeConvert {
         if (o == null) {
             return false;
         } else if (o instanceof Boolean) {
-            return ((Boolean) o).booleanValue();
+            return (Boolean) o;
         } else if (o instanceof String) {
             return String2boolean((String) o);
         } else {
@@ -3412,7 +3412,7 @@ public class TypeConvert {
         if (o == null) {
             return (byte) 0;
         } else if (o instanceof Byte) {
-            return ((Byte) o).byteValue();
+            return (Byte) o;
         } else if (o instanceof Character) {
             return Character2byte((Character) o);
         } else if (o instanceof Double) {
@@ -3506,7 +3506,7 @@ public class TypeConvert {
         if (o == null) {
             return (char) 0;
         } else if (o instanceof Character) {
-            return ((Character) o).charValue();
+            return (Character) o;
         } else if (o instanceof Byte) {
             return Byte2char((Byte) o);
         } else if (o instanceof Double) {
@@ -3591,7 +3591,7 @@ public class TypeConvert {
         if (o == null) {
             return (double) 0;
         } else if (o instanceof Double) {
-            return ((Double) o).doubleValue();
+            return (Double) o;
         } else if (o instanceof Character) {
             return Character2double((Character) o);
         } else if (o instanceof Byte) {
@@ -3651,7 +3651,7 @@ public class TypeConvert {
         if (o == null) {
             return 0f;
         } else if (o instanceof Float) {
-            return ((Float) o).floatValue();
+            return (Float) o;
         } else if (o instanceof Byte) {
             return Byte2float((Byte) o);
         } else if (o instanceof Character) {
@@ -3741,7 +3741,7 @@ public class TypeConvert {
         if (o == null) {
             return 0;
         } else if (o instanceof Integer) {
-            return ((Integer) o).intValue();
+            return (Integer) o;
         } else if (o instanceof Byte) {
             return Byte2int((Byte) o);
         } else if (o instanceof Character) {
@@ -3801,7 +3801,7 @@ public class TypeConvert {
         if (o == null) {
             return 0;
         } else if (o instanceof Long) {
-            return ((Long) o).longValue();
+            return (Long) o;
         } else if (o instanceof Byte) {
             return Byte2long((Byte) o);
         } else if (o instanceof Character) {
@@ -3870,7 +3870,7 @@ public class TypeConvert {
         if (o == null) {
             return (short) 0;
         } else if (o instanceof Short) {
-            return ((Short) o).shortValue();
+            return (Short) o;
         } else if (o instanceof Byte) {
             return Byte2short((Byte) o);
         } else if (o instanceof Character) {
@@ -3974,7 +3974,7 @@ public class TypeConvert {
      * 
      */
     public static Byte short2Byte(short o) {
-        return Byte.valueOf((byte) o);
+        return (byte) o;
     }
 
     /**
@@ -3998,7 +3998,7 @@ public class TypeConvert {
      * 
      */
     public static Character short2Character(short o) {
-        return Character.valueOf((char) o);
+        return (char) o;
     }
 
     /**
@@ -4022,7 +4022,7 @@ public class TypeConvert {
      * 
      */
     public static Double short2Double(short o) {
-        return Double.valueOf((double) o);
+        return (double) o;
     }
 
     /**
@@ -4038,7 +4038,7 @@ public class TypeConvert {
      * 
      */
     public static Float short2Float(short o) {
-        return Float.valueOf((float) o);
+        return (float) o;
     }
 
     /**
@@ -4062,7 +4062,7 @@ public class TypeConvert {
      * 
      */
     public static Integer short2Integer(short o) {
-        return Integer.valueOf((int) o);
+        return (int) o;
     }
 
     /**
@@ -4078,7 +4078,7 @@ public class TypeConvert {
      * 
      */
     public static Long short2Long(short o) {
-        return Long.valueOf(o);
+        return (long) o;
     }
 
     /**
@@ -4086,7 +4086,7 @@ public class TypeConvert {
      * 
      */
     public static Object short2Object(short o) {
-        return Short.valueOf(o);
+        return o;
     }
 
     /**
@@ -4102,7 +4102,7 @@ public class TypeConvert {
      * 
      */
     public static Short short2Short(short o) {
-        return Short.valueOf(o);
+        return o;
     }
 
     /**
@@ -4156,7 +4156,7 @@ public class TypeConvert {
     public static Byte Short2Byte(Short o) {
         if (o == null)
             return null;
-        return Byte.valueOf(o.byteValue());
+        return o.byteValue();
     }
 
     /**
@@ -4186,7 +4186,7 @@ public class TypeConvert {
     public static Character Short2Character(Short o) {
         if (o == null)
             return null;
-        return Character.valueOf((char) o.shortValue());
+        return (char) o.shortValue();
     }
 
     /**
@@ -4214,7 +4214,7 @@ public class TypeConvert {
     public static Double Short2Double(Short o) {
         if (o == null)
             return null;
-        return Double.valueOf(o.doubleValue());
+        return o.doubleValue();
     }
 
     /**
@@ -4234,7 +4234,7 @@ public class TypeConvert {
     public static Float Short2Float(Short o) {
         if (o == null)
             return null;
-        return Float.valueOf(o.floatValue());
+        return o.floatValue();
 
     }
 
@@ -4245,7 +4245,7 @@ public class TypeConvert {
     public static BigDecimal Short2BigDecimal(Short o) {
         if (o == null)
             return null;
-        return new BigDecimal(o.shortValue());
+        return new BigDecimal(o);
     }
 
     /**
@@ -4265,7 +4265,7 @@ public class TypeConvert {
     public static Integer Short2Integer(Short o) {
         if (o == null)
             return null;
-        return Integer.valueOf(o.intValue());
+        return o.intValue();
     }
 
     /**
@@ -4303,7 +4303,7 @@ public class TypeConvert {
     public static short Short2short(Short o) {
         if (o == null)
             return (short) 0;
-        return o.shortValue();
+        return o;
     }
 
     /**
@@ -4412,7 +4412,7 @@ public class TypeConvert {
             return null;
         if (o.length() > 1)
             throw ConvertTypeIllegalArgumentException.forInputArgument(o, "Character");
-        return Character.valueOf(o.charAt(0));
+        return o.charAt(0);
     }
 
     /**

@@ -25,9 +25,7 @@ public class XMLHelper {
 	    try {
 			reader = factory.newSAXParser().getXMLReader();
 			reader.setErrorHandler(null);
-		} catch (SAXException e) {
-			e.printStackTrace();
-		} catch (ParserConfigurationException e) {
+		} catch (SAXException | ParserConfigurationException e) {
 			e.printStackTrace();
 		}
 	}

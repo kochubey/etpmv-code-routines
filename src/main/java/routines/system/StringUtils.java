@@ -80,7 +80,7 @@ public class StringUtils {
         utf8Decoder.onMalformedInput(CodingErrorAction.REPORT);
         utf8Decoder.onUnmappableCharacter(CodingErrorAction.REPORT);
 
-        ArrayList<String> substrings = new ArrayList<String>();
+        ArrayList<String> substrings = new ArrayList<>();
 	
         int lineLength = line.limit();
         int sepCursor = 0;
@@ -146,7 +146,7 @@ public class StringUtils {
 
         int separatorLength = separatorChars.length();
 
-        ArrayList<String> substrings = new ArrayList<String>();
+        ArrayList<String> substrings = new ArrayList<>();
         int beg = 0;
         int end = 0;
         while (end < len) {
@@ -183,7 +183,7 @@ public class StringUtils {
      */
     
     public static String[] splitSQLColumns(String sql) {
-    	List<String> result = new ArrayList<String>();
+    	List<String> result = new ArrayList<>();
     	int blockCount = 0;
     	int start = 0;
     	for(int i=0;i<sql.length();i++) {
@@ -365,7 +365,7 @@ public class StringUtils {
         }
 
         int length = s.length();
-        StringBuffer sb = new StringBuffer(length);
+        StringBuilder sb = new StringBuilder(length);
         for (int i = 0; i < length; i++) {
 
             char c = s.charAt(i);

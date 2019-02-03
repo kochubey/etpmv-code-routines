@@ -123,7 +123,7 @@ public class StatCatcherUtils {
     }
 
     java.util.List<StatCatcherMessage> messages = java.util.Collections
-            .synchronizedList(new java.util.ArrayList<StatCatcherMessage>());
+            .synchronizedList(new java.util.ArrayList<>());
 
     String jobId = ""; //$NON-NLS-1$
 
@@ -162,7 +162,7 @@ public class StatCatcherUtils {
     }
 
     public java.util.List<StatCatcherMessage> getMessages() {
-        java.util.List<StatCatcherMessage> messagesToSend = new java.util.ArrayList<StatCatcherMessage>();
+        java.util.List<StatCatcherMessage> messagesToSend = new java.util.ArrayList<>();
         synchronized (messages) {
             for (StatCatcherMessage scm : messages) {
                 messagesToSend.add(scm);

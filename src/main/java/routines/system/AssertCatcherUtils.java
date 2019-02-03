@@ -239,7 +239,7 @@ public class AssertCatcherUtils {
     }
 
     java.util.List<AssertCatcherMessage> messages = java.util.Collections
-            .synchronizedList(new java.util.ArrayList<AssertCatcherMessage>());
+            .synchronizedList(new java.util.ArrayList<>());
 
     public void addMessage(String pid, String project, String job, String language, String origin, String status,
             String substatus, String description) {
@@ -254,7 +254,7 @@ public class AssertCatcherUtils {
     }
 
     public java.util.List<AssertCatcherMessage> getMessages() {
-        java.util.List<AssertCatcherMessage> messagesToSend = new java.util.ArrayList<AssertCatcherMessage>();
+        java.util.List<AssertCatcherMessage> messagesToSend = new java.util.ArrayList<>();
         synchronized (messages) {
             for (AssertCatcherMessage acm : messages) {
                 messagesToSend.add(acm);

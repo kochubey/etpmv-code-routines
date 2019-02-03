@@ -82,7 +82,7 @@ public class LogCatcherUtils {
     }
 
     java.util.List<LogCatcherMessage> messages = java.util.Collections
-            .synchronizedList(new java.util.ArrayList<LogCatcherMessage>());
+            .synchronizedList(new java.util.ArrayList<>());
 
     public void addMessage(String type, String origin, int priority, String message, int code) {
         LogCatcherMessage lcm = new LogCatcherMessage(type, origin, priority, message, code);
@@ -90,7 +90,7 @@ public class LogCatcherUtils {
     }
 
     public java.util.List<LogCatcherMessage> getMessages() {
-        java.util.List<LogCatcherMessage> messagesToSend = new java.util.ArrayList<LogCatcherMessage>();
+        java.util.List<LogCatcherMessage> messagesToSend = new java.util.ArrayList<>();
         synchronized (messages) {
             for (int index=0;index < messages.size();index++) {
             	LogCatcherMessage lcm = messages.get(index);

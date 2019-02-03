@@ -13,11 +13,11 @@ public class SharedDBPreparedStatement {
 
     private static SharedDBPreparedStatement instance = null;
 
-    private Map<String, Object> locks = new HashMap<String, Object>();
+    private Map<String, Object> locks = new HashMap<>();
 
-    private Map<String, Boolean> needToWait = new HashMap<String, Boolean>();
+    private Map<String, Boolean> needToWait = new HashMap<>();
 
-    private Map<String, PreparedStatement> sharedPreparedStatements = new HashMap<String, java.sql.PreparedStatement>();
+    private Map<String, PreparedStatement> sharedPreparedStatements = new HashMap<>();
 
     private SharedDBPreparedStatement() {
 

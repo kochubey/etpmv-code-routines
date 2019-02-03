@@ -56,7 +56,7 @@ public class DocumentLookupCache {
 	 */
 	class UniqueLookupCache extends LookupCache {
 
-		private Map<List<Object>,Map<String,Object>> uniqueMap = new HashMap<List<Object>,Map<String,Object>>();
+		private Map<List<Object>,Map<String,Object>> uniqueMap = new HashMap<>();
 		
 		@Override
 		void put(List<Object> key,Map<String,Object> value) {
@@ -89,7 +89,7 @@ public class DocumentLookupCache {
 	 */
 	class FirstLookupCache extends LookupCache {
 
-		private Map<List<Object>,Map<String,Object>> uniqueMap = new HashMap<List<Object>,Map<String,Object>>();
+		private Map<List<Object>,Map<String,Object>> uniqueMap = new HashMap<>();
 		
 		@Override
 		void put(List<Object> key,Map<String,Object> value) {

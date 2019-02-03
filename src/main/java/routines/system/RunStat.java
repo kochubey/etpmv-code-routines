@@ -147,9 +147,9 @@ public class RunStat implements Runnable {
 
     }
 
-    private Map<String, StatBean> processStats = new HashMap<String, StatBean>();
+    private Map<String, StatBean> processStats = new HashMap<>();
 
-    private List<String> keysList = new LinkedList<String>();
+    private List<String> keysList = new LinkedList<>();
 
     // private java.util.ArrayList<StatBean> processStats = new java.util.ArrayList<StatBean>();
 
@@ -158,8 +158,6 @@ public class RunStat implements Runnable {
     private java.io.PrintWriter pred;
 
     private boolean jobIsFinished = false;
-
-    private String str = ""; //$NON-NLS-1$
 
     public void startThreadStat(String clientHost, int portStats) throws java.io.IOException, java.net.UnknownHostException {
         if (!openSocket) {
@@ -246,7 +244,7 @@ public class RunStat implements Runnable {
                 s.close();
             }
             System.out.println("[statistics] disconnected"); //$NON-NLS-1$
-        } catch (java.io.IOException ie) {
+        } catch (java.io.IOException ignored) {
         }
     }
 
@@ -262,6 +260,8 @@ public class RunStat implements Runnable {
             StatBean sb = processStats.get(curKey);
             // it is connection
             int jobStat = sb.getJobStat();
+            //$NON-NLS-1$
+            String str = "";
             if (jobStat == JOBDEFAULT) {
                 str = TYPE1_CONNECTION + "|" + rootPid + "|" + fatherPid + "|" + pid + "|" + sb.getConnectionId();
                 // str = sb.getConnectionId();

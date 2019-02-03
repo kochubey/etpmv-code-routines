@@ -137,7 +137,7 @@ public class MetterCatcherUtils {
     }
 
     java.util.List<MetterCatcherMessage> messages = java.util.Collections
-            .synchronizedList(new java.util.ArrayList<MetterCatcherMessage>());
+            .synchronizedList(new java.util.ArrayList<>());
 
     String jobId = ""; //$NON-NLS-1$
 
@@ -157,7 +157,7 @@ public class MetterCatcherUtils {
 
     public java.util.List<MetterCatcherMessage> getMessages() {
 
-        java.util.List<MetterCatcherMessage> messagesToSend = new java.util.ArrayList<MetterCatcherMessage>();
+        java.util.List<MetterCatcherMessage> messagesToSend = new java.util.ArrayList<>();
         synchronized (messages) {
             for (MetterCatcherMessage scm : messages) {
                 messagesToSend.add(scm);
@@ -167,7 +167,7 @@ public class MetterCatcherUtils {
         return messagesToSend;
     }
 
-    private Map<String, Integer> connCountMap = java.util.Collections.synchronizedMap(new HashMap<String, Integer>());
+    private Map<String, Integer> connCountMap = java.util.Collections.synchronizedMap(new HashMap<>());
 
     public void clearConnCountMap() {
         connCountMap.clear();
@@ -176,9 +176,9 @@ public class MetterCatcherUtils {
     public void addLineToRow(String connName) {
         if (connCountMap.containsKey(connName)) {
             Integer count = this.connCountMap.get(connName);
-            this.connCountMap.put(connName, new Integer(count.intValue() + 1));
+            this.connCountMap.put(connName, count.intValue() + 1);
         } else {
-            this.connCountMap.put(connName, new Integer(1));
+            this.connCountMap.put(connName, 1);
         }
     }
 

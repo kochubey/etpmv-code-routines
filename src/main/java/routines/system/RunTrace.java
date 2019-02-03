@@ -27,9 +27,9 @@ public class RunTrace implements Runnable {
         this.openSocket = openSocket;
     }
 
-    private java.util.concurrent.ConcurrentHashMap<String, TraceDataBean> processTraces = new java.util.concurrent.ConcurrentHashMap<String, TraceDataBean>();
+    private java.util.concurrent.ConcurrentHashMap<String, TraceDataBean> processTraces = new java.util.concurrent.ConcurrentHashMap<>();
 
-    private Map<String, String> subjobMap = new HashMap<String, String>();
+    private Map<String, String> subjobMap = new HashMap<>();
 
     private java.net.Socket s;
 
@@ -41,8 +41,6 @@ public class RunTrace implements Runnable {
 
     private String str = ""; //$NON-NLS-1$
 
-    private Thread t;
-
     public void startThreadTrace(String clientHost, int portTraces) throws java.io.IOException, java.net.UnknownHostException {
         if (!openSocket) {
             return;
@@ -51,7 +49,7 @@ public class RunTrace implements Runnable {
         s = new java.net.Socket(clientHost, portTraces);
         oos = new NoHeaderObjectOutputStream(s.getOutputStream());
         System.out.println("[trace] connected"); //$NON-NLS-1$
-        t = new Thread(this);
+        Thread t = new Thread(this);
         t.start();
 
     }
@@ -77,7 +75,7 @@ public class RunTrace implements Runnable {
             oos.close();
             s.close();
             System.out.println("[trace] disconnected"); //$NON-NLS-1$
-        } catch (java.io.IOException ie) {
+        } catch (java.io.IOException ignored) {
         }
     }
 
@@ -90,10 +88,7 @@ public class RunTrace implements Runnable {
             ois = new NoHeaderObjectInputStream(s.getInputStream());
             TraceBean traceBean = (TraceBean) ois.readObject();
             return traceBean.equals(TraceStatusBean.NEXT_ROW);
-        } catch (IOException e) {
-            e.printStackTrace();
-            return false;
-        } catch (ClassNotFoundException e) {
+        } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
             return false;
         }
@@ -108,10 +103,7 @@ public class RunTrace implements Runnable {
             ois = new NoHeaderObjectInputStream(s.getInputStream());
             TraceBean traceBean = (TraceBean) ois.readObject();
             return traceBean.equals(TraceStatusBean.NEXT_BREAKPOINT);
-        } catch (IOException e) {
-            e.printStackTrace();
-            return false;
-        } catch (ClassNotFoundException e) {
+        } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
             return false;
         }
@@ -134,9 +126,7 @@ public class RunTrace implements Runnable {
                     action = true;
                 }
             } while (!action);
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
@@ -150,10 +140,7 @@ public class RunTrace implements Runnable {
             ois = new NoHeaderObjectInputStream(s.getInputStream());
             TraceBean traceBean = (TraceBean) ois.readObject();
             return traceBean.equals(TraceStatusBean.PAUSE);
-        } catch (IOException e) {
-            e.printStackTrace();
-            return false;
-        } catch (ClassNotFoundException e) {
+        } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
             return false;
         }

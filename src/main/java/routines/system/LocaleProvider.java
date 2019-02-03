@@ -59,10 +59,9 @@ public class LocaleProvider {
      * DOC amaumont Comment method "initCache".
      */
     private static void initCache() {
-        cache = new HashMap<String, Locale>();
+        cache = new HashMap<>();
         Locale[] availableLocales = Locale.getAvailableLocales();
-        for (int i = 0; i < availableLocales.length; i++) {
-            Locale locale = availableLocales[i];
+        for (Locale locale : availableLocales) {
             String country = locale.getCountry();
             String language = locale.getLanguage();
             String key = null;

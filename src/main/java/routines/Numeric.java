@@ -21,7 +21,7 @@ import java.math.BigDecimal;
 
 public class Numeric {
 
-    private static final java.util.Map<String, Integer> seq_Hash = new java.util.HashMap<String, Integer>();
+    private static final java.util.Map<String, Integer> seq_Hash = new java.util.HashMap<>();
 
     /**
      * return an incremented numeric id
@@ -121,7 +121,7 @@ public class Numeric {
      */
     public static Float convertImpliedDecimalFormat(String format, String toConvert) {
         BigDecimal decimal = Numeric.convertString2BigDecimal(format,toConvert);
-        return new Float(decimal.doubleValue());
+        return (float) decimal.doubleValue();
     }
 
     public static BigDecimal convertString2BigDecimal(String format, String toConvert) {

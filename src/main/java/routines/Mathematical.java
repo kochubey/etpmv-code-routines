@@ -431,13 +431,7 @@ public class Mathematical {
     public static int SCMP(String a, String b) {
         double da = Double.valueOf(a);
         double db = Double.valueOf(b);
-        if (da > db) {
-            return 1;
-        } else if (da == db) {
-            return 0;
-        } else {
-            return -1;
-        }
+        return Double.compare(da, db);
     }
 
     /**

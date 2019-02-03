@@ -22,17 +22,17 @@ public interface TalendMDMJob extends TalendJob {
 	/**
 	 * @return
 	 */
-	public org.dom4j.Document getMDMOutputMessage();
+    org.dom4j.Document getMDMOutputMessage();
 
 	/**
 	 * @param message
 	 */
-	public void setMDMInputMessage(org.dom4j.Document message);
+    void setMDMInputMessage(org.dom4j.Document message);
 
 	/**
 	 * @param message
 	 * @throws DocumentException 
 	 */
-	public void setMDMInputMessage(String message) throws org.dom4j.DocumentException;
+    void setMDMInputMessage(String message) throws org.dom4j.DocumentException;
 
 }

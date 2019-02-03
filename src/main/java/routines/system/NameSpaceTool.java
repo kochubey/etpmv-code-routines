@@ -2,9 +2,9 @@ package routines.system;
 
 public class NameSpaceTool {
 
-    public java.util.HashMap<String, String> xmlNameSpaceMap = new java.util.HashMap<String, String>();
+    public java.util.HashMap<String, String> xmlNameSpaceMap = new java.util.HashMap<>();
     
-	private java.util.List<String> defualtNSPath = new java.util.ArrayList<String>();
+	private java.util.List<String> defualtNSPath = new java.util.ArrayList<>();
 
     public void countNSMap(org.dom4j.Element el) {
         for (org.dom4j.Namespace ns : (java.util.List<org.dom4j.Namespace>) el.declaredNamespaces()) {
@@ -60,7 +60,7 @@ public class NameSpaceTool {
                 if (newPath.length() > 0) {
                     newPath.append("/");
                 }
-                if (tmp.length() > 0 && tmp.indexOf(":") == -1 && tmp.indexOf(".") == -1 /*&& tmp.indexOf("@") == -1*/) {
+                if (tmp.length() > 0 && !tmp.contains(":") && !tmp.contains(".") /*&& tmp.indexOf("@") == -1*/) {
                     int index = indexs[i + indexs.length - pathStrs.length];
                     if (index >= 0) {
                     	//==== add by wliu to support both filter and functions==
@@ -68,7 +68,7 @@ public class NameSpaceTool {
 							String tmpStr=replaceElementWithNS(tmp,"pre"+index+":");
 							newPath.append(tmpStr);
 						}else{
-							if(tmp.indexOf("@") != -1 || tmp.indexOf("(")<tmp.indexOf(")")){  // include attribute
+							if(tmp.contains("@") || tmp.indexOf("(")<tmp.indexOf(")")){  // include attribute
 								newPath.append(tmp);
 							}else{
 						//==add end=======	

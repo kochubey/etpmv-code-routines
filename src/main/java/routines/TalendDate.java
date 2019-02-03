@@ -311,7 +311,7 @@ public class TalendDate {
             return (part1.compareTo(part2) >= 1 ? 1 : (part1.compareTo(part2) <= -1 ? -1 : 0));
         } else {
             long time1 = date1.getTime(), time2 = date2.getTime();
-            return (time1 < time2 ? -1 : (time1 == time2 ? 0 : 1));
+            return (Long.compare(time1, time2));
         }
     }
 
@@ -1179,103 +1179,83 @@ public class TalendDate {
     public static void test_formatDate() {
         final int LOOPS = 100000;
         final String dateTimeRef_Test1 = "1979-03-23 mars 12:30";
-        Thread test1 = new Thread() {
-
-            @Override
-            public void run() {
-                Calendar calendar = GregorianCalendar.getInstance();
-                calendar.set(1979, 2, 23, 12, 30, 40);
-                Date dateCalendar = calendar.getTime();
-                for (int i = 0; i < LOOPS; i++) {
-                    String date = TalendDate.formatDate("yyyy-MM-dd MMM HH:mm", dateCalendar);
-                    // System.out.println("Test1:" + date + " # " + dateTimeRef_Test1);
-                    if (!dateTimeRef_Test1.equals(date)) {
-                        throw new IllegalStateException("Test1: Date ref : '" + dateTimeRef_Test1 + "' is different of '" + date
-                                + "'");
-                    }
+        Thread test1 = new Thread(() -> {
+            Calendar calendar = GregorianCalendar.getInstance();
+            calendar.set(1979, 2, 23, 12, 30, 40);
+            Date dateCalendar = calendar.getTime();
+            for (int i = 0; i < LOOPS; i++) {
+                String date = TalendDate.formatDate("yyyy-MM-dd MMM HH:mm", dateCalendar);
+                // System.out.println("Test1:" + date + " # " + dateTimeRef_Test1);
+                if (!dateTimeRef_Test1.equals(date)) {
+                    throw new IllegalStateException("Test1: Date ref : '" + dateTimeRef_Test1 + "' is different of '" + date
+                            + "'");
                 }
-                System.out.println("test1 ok");
             }
-        };
+            System.out.println("test1 ok");
+        });
         final String dateTimeRef_Test2 = "1980-03-23 mars 12:30";
-        Thread test2 = new Thread() {
-
-            @Override
-            public void run() {
-                Calendar calendar = GregorianCalendar.getInstance();
-                calendar.set(1980, 2, 23, 12, 30, 40);
-                Date dateCalendar = calendar.getTime();
-                for (int i = 0; i < LOOPS; i++) {
-                    String date = TalendDate.formatDate("yyyy-MM-dd MMM HH:mm", dateCalendar);
-                    // System.out.println("Test2:" + date + " # " + dateTimeRef_Test2);
-                    if (!dateTimeRef_Test2.equals(date)) {
-                        throw new IllegalStateException("Test2: Date ref : '" + dateTimeRef_Test2 + "' is different of '" + date
-                                + "'");
-                    }
+        Thread test2 = new Thread(() -> {
+            Calendar calendar = GregorianCalendar.getInstance();
+            calendar.set(1980, 2, 23, 12, 30, 40);
+            Date dateCalendar = calendar.getTime();
+            for (int i = 0; i < LOOPS; i++) {
+                String date = TalendDate.formatDate("yyyy-MM-dd MMM HH:mm", dateCalendar);
+                // System.out.println("Test2:" + date + " # " + dateTimeRef_Test2);
+                if (!dateTimeRef_Test2.equals(date)) {
+                    throw new IllegalStateException("Test2: Date ref : '" + dateTimeRef_Test2 + "' is different of '" + date
+                            + "'");
                 }
-                System.out.println("test2 ok");
             }
-        };
+            System.out.println("test2 ok");
+        });
 
         final String dateTimeRef_Test3 = "1979-03-23 mars 12:30";
-        Thread test3 = new Thread() {
-
-            @Override
-            public void run() {
-                Calendar calendar = GregorianCalendar.getInstance();
-                calendar.set(1979, 2, 23, 12, 30, 40);
-                Date dateCalendar = calendar.getTime();
-                for (int i = 0; i < LOOPS; i++) {
-                    String date = TalendDate.formatDateLocale("yyyy-MM-dd MMM HH:mm", dateCalendar, "FR");
-                    // System.out.println("Test3:" + date + " # " + dateTimeRef_Test3);
-                    if (!dateTimeRef_Test3.equals(date)) {
-                        throw new IllegalStateException("Test3: Date ref : '" + dateTimeRef_Test3 + "' is different of '" + date
-                                + "'");
-                    }
+        Thread test3 = new Thread(() -> {
+            Calendar calendar = GregorianCalendar.getInstance();
+            calendar.set(1979, 2, 23, 12, 30, 40);
+            Date dateCalendar = calendar.getTime();
+            for (int i = 0; i < LOOPS; i++) {
+                String date = TalendDate.formatDateLocale("yyyy-MM-dd MMM HH:mm", dateCalendar, "FR");
+                // System.out.println("Test3:" + date + " # " + dateTimeRef_Test3);
+                if (!dateTimeRef_Test3.equals(date)) {
+                    throw new IllegalStateException("Test3: Date ref : '" + dateTimeRef_Test3 + "' is different of '" + date
+                            + "'");
                 }
-                System.out.println("test3 ok");
             }
-        };
+            System.out.println("test3 ok");
+        });
         final String dateTimeRef_Test4 = "1980-03-23 Mar 12:30";
-        Thread test4 = new Thread() {
-
-            @Override
-            public void run() {
-                Calendar calendar = GregorianCalendar.getInstance();
-                calendar.set(1980, 2, 23, 12, 30, 40);
-                Date dateCalendar = calendar.getTime();
-                for (int i = 0; i < LOOPS; i++) {
-                    String date = TalendDate.formatDateLocale("yyyy-MM-dd MMM HH:mm", dateCalendar, "EN");
-                    // System.out.println("Test4:" + date + " # " + dateTimeRef_Test4);
-                    if (!dateTimeRef_Test4.equals(date)) {
-                        throw new IllegalStateException("Test4: Date ref : '" + dateTimeRef_Test4 + "' is different of '" + date
-                                + "'");
-                    }
+        Thread test4 = new Thread(() -> {
+            Calendar calendar = GregorianCalendar.getInstance();
+            calendar.set(1980, 2, 23, 12, 30, 40);
+            Date dateCalendar = calendar.getTime();
+            for (int i = 0; i < LOOPS; i++) {
+                String date = TalendDate.formatDateLocale("yyyy-MM-dd MMM HH:mm", dateCalendar, "EN");
+                // System.out.println("Test4:" + date + " # " + dateTimeRef_Test4);
+                if (!dateTimeRef_Test4.equals(date)) {
+                    throw new IllegalStateException("Test4: Date ref : '" + dateTimeRef_Test4 + "' is different of '" + date
+                            + "'");
                 }
-                System.out.println("test4 ok");
             }
-        };
+            System.out.println("test4 ok");
+        });
 
         final String dateTimeRef_Test5 = "1979-03-23";
-        Thread test5 = new Thread() {
-
-            @Override
-            public void run() {
-                Calendar calendar = GregorianCalendar.getInstance();
-                calendar.set(1979, 2, 23, 12, 30, 40);
-                Date dateCalendar = calendar.getTime();
-                for (int i = 0; i < LOOPS; i++) {
-                    String date = TalendDate.formatDate("yyyy-MM-dd", dateCalendar);
-                    // System.out.println("Test5:" + date + " # " + dateTimeRef_Test5);
-                    if (!dateTimeRef_Test5.equals(date)) {
-                        throw new IllegalStateException("Test5: Date ref : '" + dateTimeRef_Test5 + "' is different of '" + date
-                                + "'");
-                    }
-
+        Thread test5 = new Thread(() -> {
+            Calendar calendar = GregorianCalendar.getInstance();
+            calendar.set(1979, 2, 23, 12, 30, 40);
+            Date dateCalendar = calendar.getTime();
+            for (int i = 0; i < LOOPS; i++) {
+                String date = TalendDate.formatDate("yyyy-MM-dd", dateCalendar);
+                // System.out.println("Test5:" + date + " # " + dateTimeRef_Test5);
+                if (!dateTimeRef_Test5.equals(date)) {
+                    throw new IllegalStateException("Test5: Date ref : '" + dateTimeRef_Test5 + "' is different of '" + date
+                            + "'");
                 }
-                System.out.println("test5 ok");
+
             }
-        };
+            System.out.println("test5 ok");
+        });
 
         test1.start();
         test2.start();

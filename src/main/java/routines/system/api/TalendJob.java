@@ -16,7 +16,7 @@ public interface TalendJob {
      * @param args job arguments.
      * @return an array of value per row returned.
      */
-    public String[][] runJob(String[] args);
+    String[][] runJob(String[] args);
 
     /**
      * Run a Talend job.
@@ -24,6 +24,6 @@ public interface TalendJob {
      * @param args job arguments.
      * @return return code, if 0 execution completed successfully, else execution failed.
      */
-    public int runJobInTOS(String[] args);
+    int runJobInTOS(String[] args);
 
 }

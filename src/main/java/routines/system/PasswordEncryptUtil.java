@@ -26,8 +26,6 @@ public class PasswordEncryptUtil {
 
     public static String ENCRYPT_KEY = "Encrypt"; //$NON-NLS-1$
 
-    private static String rawKey = "Talend-Key"; //$NON-NLS-1$
-
     private static SecretKey key = null;
 
     private static SecureRandom secureRandom = new SecureRandom();
@@ -37,6 +35,8 @@ public class PasswordEncryptUtil {
     private static SecretKey getSecretKey() throws Exception {
         if (key == null) {
 
+            //$NON-NLS-1$
+            String rawKey = "Talend-Key";
             byte rawKeyData[] = rawKey.getBytes(CHARSET);
             DESKeySpec dks = new DESKeySpec(rawKeyData);
             SecretKeyFactory keyFactory = SecretKeyFactory.getInstance("DES"); //$NON-NLS-1$

@@ -88,7 +88,7 @@ public class TalendString {
     public static String getAsciiRandomString(int length) {
         Random random = new Random();
         int cnt = 0;
-        StringBuffer buffer = new StringBuffer();
+        StringBuilder buffer = new StringBuilder();
         char ch;
         int end = 'z' + 1;
         int start = ' ';
@@ -139,7 +139,7 @@ public class TalendString {
     }
 
     private static String quoteChars( String padding_chars){
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         for (int i = 0; i < padding_chars.length(); i++) {
             char c = padding_chars.charAt(i);
             if (!(Character.isLetterOrDigit(c) || c == '_')) {
@@ -155,7 +155,7 @@ public class TalendString {
      * self definition:escape char ,for example -->'\\'
      */
     public static String addEscapeChars(String padding_chars,char escapeChar){
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         for (int i = 0; i < padding_chars.length(); i++) {
             char c = padding_chars.charAt(i);
             if (!(Character.isLetterOrDigit(c) || c == '_'||Character.isWhitespace(c))) {
@@ -286,7 +286,7 @@ public class TalendString {
      * {example} removeAccents("Accès à la base")
      */
     public static String removeAccents(String text) {
-        StringBuffer result = new StringBuffer();
+        StringBuilder result = new StringBuilder();
 
         for (int bcl = 0; bcl < text.length(); bcl++) {
             char carVal = text.charAt(bcl);

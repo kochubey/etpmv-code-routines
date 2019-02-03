@@ -5,8 +5,8 @@ import java.io.ObjectOutputStream;
 
 public interface IPersistableRow<R> {
 
-    public void writeData(ObjectOutputStream out);
+    void writeData(ObjectOutputStream out);
 
-    public void readData(ObjectInputStream in);
+    void readData(ObjectInputStream in);
 
 }

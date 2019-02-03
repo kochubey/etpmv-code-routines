@@ -143,9 +143,9 @@ public class JSONObject {
      */
     public JSONObject(JSONObject jo, String[] names) {
         this();
-        for (int i = 0; i < names.length; i += 1) {
+        for (String name : names) {
             try {
-                putOnce(names[i], jo.opt(names[i]));
+                putOnce(name, jo.opt(name));
             } catch (Exception ignore) {
             }
         }
@@ -220,9 +220,8 @@ public class JSONObject {
     public JSONObject(Map map) {
         this.map = new HashMap();
         if (map != null) {
-            Iterator i = map.entrySet().iterator();
-            while (i.hasNext()) {
-                Map.Entry e = (Map.Entry) i.next();
+            for (Object o : map.entrySet()) {
+                Map.Entry e = (Map.Entry) o;
                 this.map.put(e.getKey(), wrap(e.getValue()));
             }
         }
@@ -259,8 +258,7 @@ public class JSONObject {
     public JSONObject(Object object, String names[]) {
         this();
         Class c = object.getClass();
-        for (int i = 0; i < names.length; i += 1) {
-            String name = names[i];
+        for (String name : names) {
             try {
                 putOpt(name, c.getField(name).get(object));
             } catch (Exception ignore) {
@@ -393,7 +391,7 @@ public class JSONObject {
     public double getDouble(String key) throws JSONException {
         Object o = get(key);
         try {
-            return o instanceof Number ? ((Number) o).doubleValue() : Double.valueOf((String) o).doubleValue();
+            return o instanceof Number ? ((Number) o).doubleValue() : Double.valueOf((String) o);
         } catch (Exception e) {
             throw new JSONException("JSONObject[" + quote(key) + "] is not a number.");
         }
@@ -531,13 +529,13 @@ public class JSONObject {
             put(key, 1);
         } else {
             if (value instanceof Integer) {
-                put(key, ((Integer) value).intValue() + 1);
+                put(key, (Integer) value + 1);
             } else if (value instanceof Long) {
-                put(key, ((Long) value).longValue() + 1);
+                put(key, (Long) value + 1);
             } else if (value instanceof Double) {
-                put(key, ((Double) value).doubleValue() + 1);
+                put(key, (Double) value + 1);
             } else if (value instanceof Float) {
-                put(key, ((Float) value).floatValue() + 1);
+                put(key, (Float) value + 1);
             } else {
                 throw new JSONException("Unable to increment [" + key + "].");
             }
@@ -673,7 +671,7 @@ public class JSONObject {
     public double optDouble(String key, double defaultValue) {
         try {
             Object o = opt(key);
-            return o instanceof Number ? ((Number) o).doubleValue() : new Double((String) o).doubleValue();
+            return o instanceof Number ? ((Number) o).doubleValue() : new Double((String) o);
         } catch (Exception e) {
             return defaultValue;
         }
@@ -790,14 +788,14 @@ public class JSONObject {
         Method[] methods = (includeSuperClass) ? klass.getMethods() : klass.getDeclaredMethods();
         
         Field[] fields = (includeSuperClass) ? klass.getFields() : klass.getDeclaredFields();
-        Set<String> fieldNames = new HashSet<String>(); 
+        Set<String> fieldNames = new HashSet<>();
         for(Field field : fields) {
         	fieldNames.add(field.getName());
         }
-        
-        for (int i = 0; i < methods.length; i += 1) {
+
+        for (Method method1 : methods) {
             try {
-                Method method = methods[i];
+                Method method = method1;
                 if (Modifier.isPublic(method.getModifiers())) {
                     String name = method.getName();
                     String key = "";
@@ -813,8 +811,8 @@ public class JSONObject {
                     // key = name.substring(2);
                     // }
                     if (key.length() > 0 && Character.isUpperCase(key.charAt(0)) && method.getParameterTypes().length == 0) {
-                        if(!fieldNames.contains(key)) {
-                        	key = Character.toLowerCase(key.charAt(0)) + key.substring(1);
+                        if (!fieldNames.contains(key)) {
+                            key = Character.toLowerCase(key.charAt(0)) + key.substring(1);
                         }
 
                         Object result = method.invoke(bean, (Object[]) null);
@@ -1076,7 +1074,7 @@ public class JSONObject {
         if ((b >= '0' && b <= '9') || b == '.' || b == '-' || b == '+') {
             if (b == '0' && s.length() > 2 && (s.charAt(1) == 'x' || s.charAt(1) == 'X')) {
                 try {
-                    return new Integer(Integer.parseInt(s.substring(2), 16));
+                    return Integer.parseInt(s.substring(2), 16);
                 } catch (Exception ignore) {
                 }
             }
@@ -1085,8 +1083,8 @@ public class JSONObject {
                     return Double.valueOf(s);
                 } else {
                     Long myLong = new Long(s);
-                    if (myLong.longValue() == myLong.intValue()) {
-                        return new Integer(myLong.intValue());
+                    if (myLong == myLong.intValue()) {
+                        return myLong.intValue();
                     } else {
                         return myLong;
                     }
@@ -1813,5 +1811,5 @@ interface JSONString {
      * 
      * @return A strictly syntactically correct JSON text.
      */
-    public String toJSONString();
+    String toJSONString();
 }

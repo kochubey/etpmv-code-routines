@@ -34,13 +34,13 @@ public interface TalendESBRoute extends TalendJob {
 	 * 
 	 * @throws Exception
 	 */
-	public void stop() throws Exception;
+    void stop() throws Exception;
 	
 	/**
 	 * Shutdown the running route, which means it cannot be started again.
 	 * 
 	 * @throws Exception
 	 */
-	public void shutdown() throws Exception;
+    void shutdown() throws Exception;
 	
 }

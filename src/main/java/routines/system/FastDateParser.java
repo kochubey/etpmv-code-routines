@@ -12,6 +12,7 @@
 // ============================================================================
 package routines.system;
 
+import java.util.HashMap;
 import java.util.Locale;
 
 public class FastDateParser {
@@ -29,24 +30,12 @@ public class FastDateParser {
         super();
     }
     
-    private static ThreadLocal<java.util.HashMap<DateFormatKey, java.text.DateFormat>> localCache = new ThreadLocal<java.util.HashMap<DateFormatKey, java.text.DateFormat>>() {
-
-		@Override
-		protected java.util.HashMap<DateFormatKey, java.text.DateFormat> initialValue() {
-			return new java.util.HashMap<DateFormatKey, java.text.DateFormat>();
-		}
-    	
-    };
+    private static ThreadLocal<java.util.HashMap<DateFormatKey, java.text.DateFormat>> localCache = ThreadLocal.withInitial(() -> new HashMap<>());
     
-    private static ThreadLocal<DateFormatKey> localDateFormatKey= new ThreadLocal<DateFormatKey>() {
-
-		@Override
-		protected DateFormatKey initialValue() {
-			// TODO Auto-generated method stub
-			return getInstance().new DateFormatKey();
-		}
-    	
-    };
+    private static ThreadLocal<DateFormatKey> localDateFormatKey= ThreadLocal.withInitial(() -> {
+        // TODO Auto-generated method stub
+        return getInstance().new DateFormatKey();
+    });
 
     // Warning : DateFormat objects returned by this method are not thread safe
     public static java.text.DateFormat getInstance(String pattern) {
@@ -66,16 +55,20 @@ public class FastDateParser {
     	localDateFormatKey.get().locale = locale;
         java.text.DateFormat format = localCache.get().get(localDateFormatKey.get());
         if (format == null) {
-            if (pattern.equals("yyyy-MM-dd")) { //$NON-NLS-1$
-                format = new DateParser();
-            } else if (pattern.equals("yyyy-MM-dd HH:mm:ss")) { //$NON-NLS-1$
-                format = new DateTimeParser();
-            } else {
-                if (locale != null) {
-                    format = new java.text.SimpleDateFormat(pattern, locale);
-                } else {
-                    format = new java.text.SimpleDateFormat(pattern);
-                }
+            switch (pattern) {
+                case "yyyy-MM-dd":  //$NON-NLS-1$
+                    format = new DateParser();
+                    break;
+                case "yyyy-MM-dd HH:mm:ss":  //$NON-NLS-1$
+                    format = new DateTimeParser();
+                    break;
+                default:
+                    if (locale != null) {
+                        format = new java.text.SimpleDateFormat(pattern, locale);
+                    } else {
+                        format = new java.text.SimpleDateFormat(pattern);
+                    }
+                    break;
             }
             localCache.get().put(getInstance().new DateFormatKey(pattern, locale), format);
         }

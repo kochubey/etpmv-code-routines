@@ -62,8 +62,8 @@ public class StringHandling {
         if (input != null) {
             char[] val = input.toCharArray();
 
-            for (int i = 0; i < val.length; i++) {
-                if (!Character.isLetter(val[i])) {
+            for (char aVal : val) {
+                if (!Character.isLetter(aVal)) {
                     return false;
                 }
             }
@@ -273,7 +273,7 @@ public class StringHandling {
      * {example} SPACE(2) # " "
      */
     public static String SPACE(int i) {
-        StringBuffer buffer = new StringBuffer();
+        StringBuilder buffer = new StringBuilder();
         for (int j = 0; j < i; j++) {
             buffer.append(" "); //$NON-NLS-1$
         }
@@ -309,7 +309,7 @@ public class StringHandling {
      * {example} SPACE("hellow world!",2) # hello world!
      */
     public static String STR(char letter, int i) {
-        StringBuffer buffer = new StringBuffer();
+        StringBuilder buffer = new StringBuilder();
         for (int j = 0; j < i; j++) {
             buffer.append(letter);
         }

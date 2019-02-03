@@ -79,9 +79,9 @@ public class GetJarsToRegister {
         } else if (this.isOozieRuntime) {
             if (this.oozieClasspathLine != null) {
                 List<String> oozieJars = java.util.Arrays.asList(this.oozieClasspathLine.split(","));
-                for (int j = 0; j < oozieJars.size(); j++) {
-                    if (oozieJars.get(j).contains(originalClassPathLine.substring(originalClassPathLine.lastIndexOf("/")))) {
-                        classPathLine = oozieJars.get(j);
+                for (String oozieJar : oozieJars) {
+                    if (oozieJar.contains(originalClassPathLine.substring(originalClassPathLine.lastIndexOf("/")))) {
+                        classPathLine = oozieJar;
                         break;
                     }
                 }

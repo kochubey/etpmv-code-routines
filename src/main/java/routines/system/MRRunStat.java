@@ -183,7 +183,7 @@ public class MRRunStat implements Runnable {
                 s.close();
             }
             System.out.println("[statistics] disconnected"); //$NON-NLS-1$
-        } catch (java.io.IOException ie) {
+        } catch (java.io.IOException ignored) {
         }
     }
 

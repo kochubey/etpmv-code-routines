@@ -8,7 +8,7 @@ package routines.system;
  */
 public class PigHelper {
 
-    private java.util.List<String[]> pigLatins = new java.util.ArrayList<String[]>();
+    private java.util.List<String[]> pigLatins = new java.util.ArrayList<>();
 
     public java.util.List<String[]> getPigLatins() {
         return this.pigLatins;

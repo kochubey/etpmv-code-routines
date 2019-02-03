@@ -14,6 +14,7 @@ package routines.system;
 
 import java.io.IOException;
 import java.io.Writer;
+import java.security.PrivilegedAction;
 
 /**
  * @(#)BufferedWriter.java 1.26 03/12/19
@@ -65,14 +66,9 @@ public class BufferedOutput extends java.io.Writer {
         nextChar = 0;
 
         lineSeparator = java.security.AccessController.doPrivileged(
-            new java.security.PrivilegedAction<String>() {
-
-              @Override
-              public String run() {
-                return System.getProperty("line.separator"); //$NON-NLS-1$
-              }
-              
-            }
+                (PrivilegedAction<String>) () -> {
+                  return System.getProperty("line.separator"); //$NON-NLS-1$
+                }
         );
     }
 

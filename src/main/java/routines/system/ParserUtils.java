@@ -45,7 +45,7 @@ public class ParserUtils {
         if (strSrc == null) {
             return null;
         }
-        List<String> list = new ArrayList<String>();
+        List<String> list = new ArrayList<>();
 
         // the source string is wrap in [] which means it is a collection
         if ((fieldSep == null || "".equals(fieldSep)) || !(strSrc.startsWith("[") && strSrc.endsWith("]"))) {
@@ -74,7 +74,7 @@ public class ParserUtils {
         if (s == null) {
             return null;
         }
-        return Byte.decode(s).byteValue();
+        return Byte.decode(s);
     }
 
     public static Byte parseTo_Byte(String s, boolean isDecode) {
@@ -82,7 +82,7 @@ public class ParserUtils {
             return null;
         }
         if (isDecode) {
-            return Byte.decode(s).byteValue();
+            return Byte.decode(s);
         } else {
             return Byte.parseByte(s);
         }
@@ -124,7 +124,7 @@ public class ParserUtils {
 
     public static int parseTo_int(String s, boolean isDecode) {
         if (isDecode) {
-            return Integer.decode(s).intValue();
+            return Integer.decode(s);
         } else {
             return Integer.parseInt(s);
         }
@@ -150,7 +150,7 @@ public class ParserUtils {
 
     public static short parseTo_short(String s, boolean isDecode) {
         if (isDecode) {
-            return Short.decode(s).shortValue();
+            return Short.decode(s);
         } else {
             return Short.parseShort(s);
         }
@@ -176,7 +176,7 @@ public class ParserUtils {
 
     public static long parseTo_long(String s, boolean isDecode) {
         if (isDecode) {
-            return Long.decode(s).longValue();
+            return Long.decode(s);
         } else {
             return Long.parseLong(s);
         }
@@ -218,7 +218,7 @@ public class ParserUtils {
         if (s == null) {
             return null;
         }
-        StringBuffer result = new StringBuffer();
+        StringBuilder result = new StringBuilder();
         result.append("[");
         for (int i = 0; i < s.size(); i++) {
             if (i != 0) {
@@ -392,9 +392,9 @@ public class ParserUtils {
         return result;
     }
 
-    private static final Set<String> primitiveType = new HashSet<String>();
+    private static final Set<String> primitiveType = new HashSet<>();
 
-    private static final Map<String, String> primitiveTypeToDefaultValueMap = new HashMap<String, String>();
+    private static final Map<String, String> primitiveTypeToDefaultValueMap = new HashMap<>();
 
     static {
         primitiveType.add("boolean");
